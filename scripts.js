@@ -209,6 +209,23 @@ function simulador(P, B, U) {
 }
 let map;
 let markers = [];
+let mcopy =[]; 
+const locations = [
+    { id: 'plaza1', lat: -26.819433, lng: -65.202784, title: 'Plaza Urquiza', type: 'plazas' },
+    { id: 'plaza2', lat: -26.83909613043274, lng: -65.21063127151447, title: 'Plaza San Martin', type: 'plazas' },
+    { id: 'plaza3', lat: -26.837179613104176, lng: -65.21717297799597, title: 'Plaza Belgrano', type: 'plazas' },
+    { id: 'plaza4', lat: -26.83048715182709, lng: -65.20381526023203, title: 'Plaza Independencia', type: 'plazas' },
+    { id: 'plaza5', lat: -26.82179034966474, lng: -65.21112155822031, title: 'Plaza Alberdi', type: 'plazas' },
+    { id: 'plaza6', lat: -26.836998564395937, lng: -65.20545535415515, title: 'Plaza Yrigoyen', type: 'plazas' },
+    { id: 'bar1', lat: -26.833871103472223, lng: -65.20858752468824, title: 'Zona Chacabuco', type: 'bares' },
+    { id: 'bar2', lat: -26.820804561598017, lng: -65.20231892087082, title: 'Zona 25 de Mayo', type: 'bares' },
+    { id: 'uni1', lat: -26.833231188243023, lng: -65.20546042879059, title: 'UNSTA', type: 'universidades' },
+    { id: 'uni2', lat: -26.824910961705694, lng: -65.20256796458636, title: 'Facultad de Derecho', type: 'universidades' },
+    { id: 'uni3', lat: -26.839800244337763, lng: -65.20930546838383, title: 'Facultad de Artes', type: 'universidades' },
+    { id: 'uni4', lat: -26.83593902199619, lng: -65.21092236105045, title: 'Facultad de Bioquímica y Farmacia', type: 'universidades' },
+    { id: 'uni5', lat: -26.82961556485243, lng: -65.20351054372624, title: 'San Pablo T', type: 'universidades' },
+    { id: 'uni6', lat: -26.836176131422956, lng: -65.21197807800371, title: 'Facultad de Medicina', type: 'universidades' }
+];
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -216,22 +233,6 @@ function initMap() {
         zoom: 14
     });
 
-    const locations = [
-        { id: 'plaza1', lat: -26.819433, lng: -65.202784, title: 'Plaza Urquiza', type: 'plazas' },
-        { id: 'plaza2', lat: -26.83909613043274, lng: -65.21063127151447, title: 'Plaza San Martin', type: 'plazas' },
-        { id: 'plaza3', lat: -26.837179613104176, lng: -65.21717297799597, title: 'Plaza Belgrano', type: 'plazas' },
-        { id: 'plaza4', lat: -26.83048715182709, lng: -65.20381526023203, title: 'Plaza Independencia', type: 'plazas' },
-        { id: 'plaza5', lat: -26.82179034966474, lng: -65.21112155822031, title: 'Plaza Alberdi', type: 'plazas' },
-        { id: 'plaza6', lat: -26.836998564395937, lng: -65.20545535415515, title: 'Plaza Yrigoyen', type: 'plazas' },
-        { id: 'bar1', lat: -26.833871103472223, lng: -65.20858752468824, title: 'Zona Chacabuco', type: 'bares' },
-        { id: 'bar2', lat: -26.820804561598017, lng: -65.20231892087082, title: 'Zona 25 de Mayo', type: 'bares' },
-        { id: 'uni1', lat: -26.833231188243023, lng: -65.20546042879059, title: 'UNSTA', type: 'universidades' },
-        { id: 'uni2', lat: -26.824910961705694, lng: -65.20256796458636, title: 'Facultad de Derecho', type: 'universidades' },
-        { id: 'uni3', lat: -26.839800244337763, lng: -65.20930546838383, title: 'Facultad de Artes', type: 'universidades' },
-        { id: 'uni4', lat: -26.83593902199619, lng: -65.21092236105045, title: 'Facultad de Bioquímica y Farmacia', type: 'universidades' },
-        { id: 'uni5', lat: -26.82961556485243, lng: -65.20351054372624, title: 'San Pablo T', type: 'universidades' },
-        { id: 'uni6', lat: -26.836176131422956, lng: -65.21197807800371, title: 'Facultad de Medicina', type: 'universidades' }
-    ];
 
     // Añadir event listeners a los checkboxes
     locations.forEach(location => {
@@ -293,8 +294,13 @@ function initMap() {
 }
 
 window.onload = initMap;
-
+const objFunction = {
+    selectAllPlazas: () => toggleAllCheckboxes('plazas', 'selectAllPlazas'), 
+    selectAllBares: () => toggleAllCheckboxes('bares', 'selectAllBares'), 
+    selectAllUniversidades: () => toggleAllCheckboxes('universidades', 'selectAllUniversidades')
+}
 function handleCheckboxChange() {
+    debugger
     const lat = parseFloat(this.getAttribute('data-lat'));
     const lng = parseFloat(this.getAttribute('data-lng'));
     const title = this.getAttribute('data-title');
@@ -314,39 +320,50 @@ function handleCheckboxChange() {
         default:
             iconColor = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
     }
-
     if (this.checked) {
         // Añadir marcador si está seleccionado
-        const marker = new google.maps.Marker({
-            position: { lat: lat, lng: lng },
-            map: map,
-            title: title,
-            icon: iconColor
-        });
-        markers.push({ title: title, marker: marker, type: type });
-    } else {
-        // Eliminar marcador si está deseleccionado
-        const markerIndex = markers.findIndex(marker => marker.title === title && marker.type === type);
-        if (markerIndex !== -1) {
-            markers[markerIndex].marker.setMap(null);
-            markers.splice(markerIndex, 1);
+        let markerE = markers.find(marker => {return marker.title === title && marker.type === type})
+        if(!markerE){
+            const marker = new google.maps.Marker({
+                position: { lat: lat, lng: lng },
+                map: map,
+                title: title,
+                icon: iconColor
+            });
+            markers.push({ title: title, marker: marker, type: type });
+        }else {
+            const marker = new google.maps.Marker({
+                position: { lat: lat, lng: lng },
+                map: map,
+                title: title,
+                icon: iconColor
+            });
         }
+    } else {
+            const markerIndex = markers.findIndex(marker => {return marker.title === title && marker.type === type});
+            if (markerIndex !== -1) {
+                markers[markerIndex].marker.setMap(null);
+                markers.splice(markerIndex, 1);
+             
+            }
     }
 
     // Manejar la deselección de "Todas" si se selecciona una opción individual después
     const selectAllCheckbox = document.getElementById(`selectAll${type.charAt(0).toUpperCase() + type.slice(1)}`);
-    if (selectAllCheckbox.checked && !this.checked) {
+    if (selectAllCheckbox.checked && this.checked) {
         selectAllCheckbox.checked = false;
+        objFunction[`selectAll${type.charAt(0).toUpperCase() + type.slice(1)}`](); 
     }
 }
 
 function toggleAllCheckboxes(className, selectAllId) {
+    debugger
     const selectAllCheckbox = document.getElementById(selectAllId);
     const checkboxes = document.querySelectorAll(`.${className}`);
-
+    console.log(checkboxes);
     checkboxes.forEach(checkbox => {
         if (checkbox.id !== selectAllId) {
-            checkbox.checked = false; // No marcar visualmente los checkboxes individuales
+           // checkbox.checked = false; // No marcar visualmente los checkboxes individuales
             if (selectAllCheckbox.checked) {
                 // Añadir marcadores
                 const lat = parseFloat(checkbox.getAttribute('data-lat'));
@@ -378,13 +395,15 @@ function toggleAllCheckboxes(className, selectAllId) {
                 markers.push({ title: title, marker: marker, type: type });
             } else {
                 // Eliminar marcadores
-                const title = checkbox.getAttribute('data-title');
-                const type = checkbox.getAttribute('data-type');
-                const markerIndex = markers.findIndex(marker => marker.title === title && marker.type === type);
-                if (markerIndex !== -1) {
-                    markers[markerIndex].marker.setMap(null);
-                    markers.splice(markerIndex, 1);
-                }
+               if(!checkbox.checked){
+                   const title = checkbox.getAttribute('data-title');
+                   const type = checkbox.getAttribute('data-type');
+                   const markerIndex = markers.findIndex(marker => marker.title === title && marker.type === type);
+                   if (markerIndex !== -1) {
+                       markers[markerIndex].marker.setMap(null);
+                       markers.splice(markerIndex, 1);
+                   }
+               }
             }
         }
     });
