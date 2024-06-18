@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de colillas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Principal</a>
+        <a href="#about">Acerca de nosotros</a>
+    </div>
+    <h1>Simulador de colillas de cigarrillo <i class="fa-solid fa-smoking"></i></h1>
+    <div class="container">
+        <div class="column column-left">
+            <h3>
+                <details>
+                    <summary>Plazas</summary>
+                    <div class="input-group mb-3">
+                        <ul>
+                            <li><label><input type="checkbox" class="plazas" id="plaza1" value="1" /> Plaza Urquiza</label></li>
+                            <li><label><input type="checkbox" class="plazas" id="plaza2" value="1" /> Plaza San Martin</label></li>
+                            <li><label><input type="checkbox" class="plazas" id="plaza3" value="1" /> Plaza Belgrano</label></li>
+                            <li><label><input type="checkbox" class="plazas" id="plaza4" value="1" /> Plaza Independencia</label></li>
+                            <li><label><input type="checkbox" class="plazas" id="plaza5" value="1" /> Plaza Alberdi</label></li>
+                            <li><label><input type="checkbox" class="plazas" id="plaza6" value="1" /> Plaza Yrigoyen</label></li>
+                            <li><label><input type="checkbox" class="plazas" id="selectAllPlazas" /> Todas</label></li>
+                        </ul>
+                    </div>
+                </details>
+            </h3>
+            <h3>
+                <details>
+                    <summary>Bares</summary>
+                    <div class="input-group mb-3">
+                        <ul>
+                            <li><label><input type="checkbox" class="bares" id="bar1" value="4" /> Zona Chacabuco</label></li>
+                            <li><label><input type="checkbox" class="bares" id="bar2" value="5" /> Zona 25 de Mayo</label></li>
+                            <li><label><input type="checkbox" class="bares" id="selectAllBares" value="9" /> Ambas</label></li>
+                        </ul>
+                    </div>
+                </details>
+            </h3>
+            <h3>
+                <details>
+                    <summary>Universidades</summary>
+                    <div class="input-group mb-3">
+                        <ul>
+                            <li><label><input type="checkbox" class="universidades" id="uni1" value="1" /> UNSTA</label></li>
+                            <li><label><input type="checkbox" class="universidades" id="uni2" value="1" /> Facultad de Derecho</label></li>
+                            <li><label><input type="checkbox" class="universidades" id="uni3" value="1" /> Facultad de Artes</label></li>
+                            <li><label><input type="checkbox" class="universidades" id="uni4" value="1" /> Facultad de Bioquímica y Farmacia</label></li>
+                            <li><label><input type="checkbox" class="universidades" id="uni5" value="1" /> San Pablo T</label></li>
+                            <li><label><input type="checkbox" class="universidades" id="uni6" value="1" /> Facultad de Medicina</label></li>
+                            <li><label><input type="checkbox" class="universidades" id="selectAllUniversidades" /> Todas</label></li>
+                        </ul>
+                    </div>
+                </details>
+            </h3>
+        </div>
+        <div class="column column-right">
+            <p>Mapa del Microcentro</p>
+            <div id="map" style="height: 500px; width: 100%;"></div>
+            <br/><br/>
+            <button id="simular">SIMULAR</button>
+            <br/>
+            
+            
+            
+        </div>
+    </div>
+
+    <!-- Ventana emergente -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="result-container1">
+                <h2 id="modal-titlep"></h2>
+                <h4 id="modal-result-plazas"></h4>
+                <h4 id="modal-recolectores-plazas"></h4>
+            </div>
+            <div class="result-container2">
+                <h2 id="modal-titleu"></h2>
+                <h4 id="modal-result-universidades"></h4>
+                <h4 id="modal-recolectores-universidades"></h4>
+            </div>
+            <div class="result-container3">
+                <h2 id="modal-titleb"></h2>
+                <h4 id="modal-result-bares"></h4>
+                <h4 id="modal-recolectores-bares"></h4>
+            </div>
+            <div class="result-containerp">
+                <h2 id="modal-result-p"></h2>
+                <h4 id="modal-result-plastico"></h4>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDKQk3IO7TPy8s5jcH64dPeyzrNiZoGhA&callback=initMap" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
