@@ -1,109 +1,79 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de colillas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Pagina Principal</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="navbar">
-        <a href="#home">Principal</a>
-        <a href="#about">Acerca de nosotros</a>
-    </div>
-    <h1>Simulador de colillas de cigarrillo <i class="fa-solid fa-smoking"></i></h1>
     <div class="container">
-        <div class="column column-left">
-            <h3>
-                <details>
-                    <summary>Plazas</summary>
-                    <div class="input-group mb-3">
-                        <ul>
-                            <li><label><input type="checkbox" class="plazas" id="plaza1" value="1" /> Plaza Urquiza</label></li>
-                            <li><label><input type="checkbox" class="plazas" id="plaza2" value="1" /> Plaza San Martin</label></li>
-                            <li><label><input type="checkbox" class="plazas" id="plaza3" value="1" /> Plaza Belgrano</label></li>
-                            <li><label><input type="checkbox" class="plazas" id="plaza4" value="1" /> Plaza Independencia</label></li>
-                            <li><label><input type="checkbox" class="plazas" id="plaza5" value="1" /> Plaza Alberdi</label></li>
-                            <li><label><input type="checkbox" class="plazas" id="plaza6" value="1" /> Plaza Yrigoyen</label></li>
-                            <li><label><input type="checkbox" class="plazas" id="selectAllPlazas" /> Todas</label></li>
-                        </ul>
-                    </div>
-                </details>
-            </h3>
-            <h3>
-                <details>
-                    <summary>Bares</summary>
-                    <div class="input-group mb-3">
-                        <ul>
-                            <li><label><input type="checkbox" class="bares" id="bar1" value="4" /> Zona Chacabuco</label></li>
-                            <li><label><input type="checkbox" class="bares" id="bar2" value="5" /> Zona 25 de Mayo</label></li>
-                            <li><label><input type="checkbox" class="bares" id="selectAllBares" value="9" /> Ambas</label></li>
-                        </ul>
-                    </div>
-                </details>
-            </h3>
-            <h3>
-                <details>
-                    <summary>Universidades</summary>
-                    <div class="input-group mb-3">
-                        <ul>
-                            <li><label><input type="checkbox" class="universidades" id="uni1" value="1" /> UNSTA</label></li>
-                            <li><label><input type="checkbox" class="universidades" id="uni2" value="1" /> Facultad de Derecho</label></li>
-                            <li><label><input type="checkbox" class="universidades" id="uni3" value="1" /> Facultad de Artes</label></li>
-                            <li><label><input type="checkbox" class="universidades" id="uni4" value="1" /> Facultad de Bioquímica y Farmacia</label></li>
-                            <li><label><input type="checkbox" class="universidades" id="uni5" value="1" /> San Pablo T</label></li>
-                            <li><label><input type="checkbox" class="universidades" id="uni6" value="1" /> Facultad de Medicina</label></li>
-                            <li><label><input type="checkbox" class="universidades" id="selectAllUniversidades" /> Todas</label></li>
-                        </ul>
-                    </div>
-                </details>
-            </h3>
-        </div>
-        <div class="column column-right">
-            <p>Mapa del Microcentro</p>
-            <div id="map" style="height: 500px; width: 100%;"></div>
-            <br/><br/>
-            <button id="simular">SIMULAR</button>
-            <br/>
-            
-            
-            
-        </div>
+<div class="titulo">
+    <h1>El Reto del Reciclaje: Combatir la Contaminación de las Colillas de Cigarrillo</h1>
+</div>
+<div class="texto">
+    <p>La Organización Mundial de la Salud estima que se desechan unas 18.000 millones de colillas por día en el mundo. 
+      <br>
+      Transformándose en el residuo más abundante en la vía pública. 
+<br>
+        En las zonas urbanas muchas de estas colillas son arrastradas a los desagües por el viento o las lluvias y así llegan hasta los arroyos, ríos y océanos. 
+        <br>
+        De esta manera, la generación de este residuo que contiene productos químicos y metales pesados representa una amenaza para las personas, los animales y las plantas.
+    <br>    
+        Cuando las colillas se degradan en un medio terrestre, pueden reducir la fertilidad del suelo y afectar la flora y fauna del lugar. 
+        <br>
+        Cuando esto sucede en un medio acuático, una sola colilla puede contaminar hasta 1000 litros de agua, perjudicando a todos los organismos que de ella dependen. A su vez, las colillas pueden emitir al aire sustancias volátiles como la nicotina, la piridina y el benceno. 
+    </p>
+</div>
+<div id="carrusel01" class="carousel slide" data-bs-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-bs-target="#carrusel01" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+    <li data-bs-target="#carrusel01" data-bs-slide-to="1" aria-label="Second slide"></li>
+    <li data-bs-target="#carrusel01" data-bs-slide-to="2" aria-label="Third slide"></li>
+    <li data-bs-target="#carrusel01" data-bs-slide-to="3" aria-label="Quarter slide"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <img src="./imagenes/img1.jpg" class="w-100 d-block" alt="First slide">
     </div>
-
-    <!-- Ventana emergente -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="result-container1">
-                <h2 id="modal-titlep"></h2>
-                <h4 id="modal-result-plazas"></h4>
-                <h4 id="modal-recolectores-plazas"></h4>
-            </div>
-            <div class="result-container2">
-                <h2 id="modal-titleu"></h2>
-                <h4 id="modal-result-universidades"></h4>
-                <h4 id="modal-recolectores-universidades"></h4>
-            </div>
-            <div class="result-container3">
-                <h2 id="modal-titleb"></h2>
-                <h4 id="modal-result-bares"></h4>
-                <h4 id="modal-recolectores-bares"></h4>
-            </div>
-            <div class="result-containerp">
-                <h2 id="modal-result-p"></h2>
-                <h4 id="modal-result-plastico"></h4>
-            </div>
-            
-        </div>
-
+    <div class="carousel-item">
+      <img src="./imagenes/img2.jpg" class="w-100 d-block" alt="Second slide">
     </div>
+    <div class="carousel-item">
+      <img src="./imagenes/img3.jpg" class="w-100 d-block" alt="Third slide">
+    </div>
+    <div class="carousel-item">
+      <img src="./imagenes/img4.jpg" class="w-100 d-block" alt="Quarter slide">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carrusel01" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carrusel01" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+    </button>
+</div>
+  <div class="options">
+    <a href="simulador.html" class="btn">SIMULADOR</a>
+    <a href="quienesomos.html" class="btn">QUIENES SOMOS</a>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDKQk3IO7TPy8s5jcH64dPeyzrNiZoGhA&callback=initMap" async defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="scripts.js"></script>
-</body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+
+</body> 
 </html>
