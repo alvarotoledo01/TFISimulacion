@@ -271,11 +271,12 @@ function initMap() {
         { id: 'bar2', lat: -26.820804561598017, lng: -65.20231892087082, title: 'Zona 25 de Mayo', type: 'bares' },
         { id: 'uni1', lat: -26.833231188243023, lng: -65.20546042879059, title: 'UNSTA', type: 'universidades' },
         { id: 'uni2', lat: -26.824910961705694, lng: -65.20256796458636, title: 'Facultad de Derecho', type: 'universidades' },
-        { id: 'uni3', lat: -26.839800244337763, lng: -65.20930546838383, title: 'Facultad de Artes', type: 'universidades' },
+        { id: 'uni3', lat: -26.839830637005385, lng: -65.20951492029315, title: 'Facultad de Artes', type: 'universidades' },
         { id: 'uni4', lat: -26.83593902199619, lng: -65.21092236105045, title: 'Facultad de Bioquímica y Farmacia', type: 'universidades' },
         { id: 'uni5', lat: -26.82961556485243, lng: -65.20351054372624, title: 'San Pablo T', type: 'universidades' },
         { id: 'uni6', lat: -26.836176131422956, lng: -65.21197807800371, title: 'Facultad de Medicina', type: 'universidades' }
     ];
+     
 
     // Añadir event listeners a los checkboxes
     locations.forEach(location => {
