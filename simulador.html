@@ -6,13 +6,13 @@
     <title>Simulador de colillas</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="navbar">
-        <a href="index.html">Principal</a>
-        <a href="quienesomos.html">Acerca de nosotros</a>
+        <a href="index.html"><i class="fa-solid fa-house"></i>Principal</a>
+        <a href="quienesomos.html"><i class="fa-solid fa-users"></i>Acerca de nosotros</a>
     </div>
     <h1>Simulador de colillas de cigarrillo <i class="fa-solid fa-smoking"></i></h1>
     <div class="container">
@@ -68,16 +68,15 @@
             <br/><br/>
             <button id="simular">SIMULAR</button>
             <br/>
-            
-            
-            
         </div>
     </div>
 
     <!-- Ventana emergente -->
     <div id="modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <div class="close-container">
+                <button type="button" class="btn-close" aria-label="Close"></button>
+            </div>
             <div class="result-container1">
                 <h2 id="modal-titlep"></h2>
                 <h4 id="modal-result-plazas"></h4>
@@ -97,13 +96,12 @@
                 <h2 id="modal-result-p"></h2>
                 <h4 id="modal-result-plastico"></h4>
             </div>
-            
         </div>
-
     </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDKQk3IO7TPy8s5jcH64dPeyzrNiZoGhA&callback=initMap" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="scripts.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -50,27 +50,26 @@ document.getElementById('simular').addEventListener('click', function() {
     const modal = document.getElementById('modal');
     modal.style.display = "block";
 
-    // Actualizar gráfico
-    updateChart(
-        Math.ceil(resultados.CPT / 1650), 
-        Math.ceil(resultados.CBT / 1650), 
-        Math.ceil(resultados.CUT / 1650)
-    );
+    
 });
 
-// Cerrar la ventana emergente
-document.getElementsByClassName('close')[0].addEventListener('click', function() {
-    const modal = document.getElementById('modal');
+// Obtener la ventana modal
+var modal = document.getElementById("modal");
+
+// Obtener el botón que cierra la ventana
+var closeButton = document.querySelector(".btn-close");
+
+// Cuando el usuario haga clic en el botón de cierre, cerrar la ventana
+closeButton.onclick = function() {
     modal.style.display = "none";
-});
+}
 
-// Cerrar la ventana emergente cuando el usuario hace clic fuera de la misma
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById('modal');
+// Cuando el usuario haga clic fuera del contenido de la ventana, cerrar la ventana
+window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-});
+}
 
 function updateChart(plazas, bares, universidades) {
     const ctx = document.getElementById('recolectoresChart').getContext('2d');
@@ -209,7 +208,7 @@ function simulador(P, B, U) {
 }
 let map;
 let markers = [];
-let mcopy =[]; 
+let mcopy = [];
 const locations = [
     { id: 'plaza1', lat: -26.819433, lng: -65.202784, title: 'Plaza Urquiza', type: 'plazas' },
     { id: 'plaza2', lat: -26.83909613043274, lng: -65.21063127151447, title: 'Plaza San Martin', type: 'plazas' },
@@ -221,7 +220,7 @@ const locations = [
     { id: 'bar2', lat: -26.820804561598017, lng: -65.20231892087082, title: 'Zona 25 de Mayo', type: 'bares' },
     { id: 'uni1', lat: -26.833231188243023, lng: -65.20546042879059, title: 'UNSTA', type: 'universidades' },
     { id: 'uni2', lat: -26.824910961705694, lng: -65.20256796458636, title: 'Facultad de Derecho', type: 'universidades' },
-    { id: 'uni3', lat: -26.839800244337763, lng: -65.20930546838383, title: 'Facultad de Artes', type: 'universidades' },
+    { id: 'uni3', lat: -26.83987121164034, lng: -65.21000102408344, title: 'Facultad de Artes', type: 'universidades' },
     { id: 'uni4', lat: -26.83593902199619, lng: -65.21092236105045, title: 'Facultad de Bioquímica y Farmacia', type: 'universidades' },
     { id: 'uni5', lat: -26.82961556485243, lng: -65.20351054372624, title: 'San Pablo T', type: 'universidades' },
     { id: 'uni6', lat: -26.836176131422956, lng: -65.21197807800371, title: 'Facultad de Medicina', type: 'universidades' }
@@ -271,12 +270,12 @@ function initMap() {
         { id: 'bar2', lat: -26.820804561598017, lng: -65.20231892087082, title: 'Zona 25 de Mayo', type: 'bares' },
         { id: 'uni1', lat: -26.833231188243023, lng: -65.20546042879059, title: 'UNSTA', type: 'universidades' },
         { id: 'uni2', lat: -26.824910961705694, lng: -65.20256796458636, title: 'Facultad de Derecho', type: 'universidades' },
-        { id: 'uni3', lat: -26.839830637005385, lng: -65.20951492029315, title: 'Facultad de Artes', type: 'universidades' },
+        { id: 'uni3', lat: -26.83987121164034, lng: -65.21000102408344, title: 'Facultad de Artes', type: 'universidades' },
         { id: 'uni4', lat: -26.83593902199619, lng: -65.21092236105045, title: 'Facultad de Bioquímica y Farmacia', type: 'universidades' },
         { id: 'uni5', lat: -26.82961556485243, lng: -65.20351054372624, title: 'San Pablo T', type: 'universidades' },
         { id: 'uni6', lat: -26.836176131422956, lng: -65.21197807800371, title: 'Facultad de Medicina', type: 'universidades' }
     ];
-     
+    
 
     // Añadir event listeners a los checkboxes
     locations.forEach(location => {
@@ -296,12 +295,12 @@ function initMap() {
 
 window.onload = initMap;
 const objFunction = {
-    selectAllPlazas: () => toggleAllCheckboxes('plazas', 'selectAllPlazas'), 
-    selectAllBares: () => toggleAllCheckboxes('bares', 'selectAllBares'), 
+    selectAllPlazas: () => toggleAllCheckboxes('plazas', 'selectAllPlazas'),
+    selectAllBares: () => toggleAllCheckboxes('bares', 'selectAllBares'),
     selectAllUniversidades: () => toggleAllCheckboxes('universidades', 'selectAllUniversidades')
 }
 function handleCheckboxChange() {
-    debugger
+    // debugger
     const lat = parseFloat(this.getAttribute('data-lat'));
     const lng = parseFloat(this.getAttribute('data-lng'));
     const title = this.getAttribute('data-title');
@@ -321,10 +320,18 @@ function handleCheckboxChange() {
         default:
             iconColor = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
     }
+
+    // Manejar la deselección de "Todas" si se selecciona una opción individual después
+    const selectAllCheckbox = document.getElementById(`selectAll${type.charAt(0).toUpperCase() + type.slice(1)}`);
+    if (selectAllCheckbox.checked && this.checked) {
+        selectAllCheckbox.checked = false;
+        objFunction[`selectAll${type.charAt(0).toUpperCase() + type.slice(1)}`]();
+    }
+
     if (this.checked) {
         // Añadir marcador si está seleccionado
-        let markerE = markers.find(marker => {return marker.title === title && marker.type === type})
-        if(!markerE){
+        let markerE = markers.find(marker => { return marker.title === title && marker.type === type })
+        if (!markerE) {
             const marker = new google.maps.Marker({
                 position: { lat: lat, lng: lng },
                 map: map,
@@ -332,7 +339,7 @@ function handleCheckboxChange() {
                 icon: iconColor
             });
             markers.push({ title: title, marker: marker, type: type });
-        }else {
+        } else {
             const marker = new google.maps.Marker({
                 position: { lat: lat, lng: lng },
                 map: map,
@@ -341,31 +348,23 @@ function handleCheckboxChange() {
             });
         }
     } else {
-            const markerIndex = markers.findIndex(marker => {return marker.title === title && marker.type === type});
-            if (markerIndex !== -1) {
-                markers[markerIndex].marker.setMap(null);
-                markers.splice(markerIndex, 1);
-             
-            }
-    }
+        const markerIndex = markers.findIndex(marker => { return marker.title === title && marker.type === type });
+        if (markerIndex !== -1) {
+            markers[markerIndex].marker.setMap(null);
+            markers.splice(markerIndex, 1);
 
-    // Manejar la deselección de "Todas" si se selecciona una opción individual después
-    const selectAllCheckbox = document.getElementById(`selectAll${type.charAt(0).toUpperCase() + type.slice(1)}`);
-    if (selectAllCheckbox.checked && this.checked) {
-        selectAllCheckbox.checked = false;
-        objFunction[`selectAll${type.charAt(0).toUpperCase() + type.slice(1)}`](); 
+        }
     }
 }
 
 function toggleAllCheckboxes(className, selectAllId) {
-    debugger
+    // debugger
     const selectAllCheckbox = document.getElementById(selectAllId);
     const checkboxes = document.querySelectorAll(`.${className}`);
-    console.log(checkboxes);
     checkboxes.forEach(checkbox => {
         if (checkbox.id !== selectAllId) {
-           // checkbox.checked = false; // No marcar visualmente los checkboxes individuales
             if (selectAllCheckbox.checked) {
+                checkbox.checked = false; // No marcar visualmente los checkboxes individuales
                 // Añadir marcadores
                 const lat = parseFloat(checkbox.getAttribute('data-lat'));
                 const lng = parseFloat(checkbox.getAttribute('data-lng'));
@@ -396,15 +395,15 @@ function toggleAllCheckboxes(className, selectAllId) {
                 markers.push({ title: title, marker: marker, type: type });
             } else {
                 // Eliminar marcadores
-               if(!checkbox.checked){
-                   const title = checkbox.getAttribute('data-title');
-                   const type = checkbox.getAttribute('data-type');
-                   const markerIndex = markers.findIndex(marker => marker.title === title && marker.type === type);
-                   if (markerIndex !== -1) {
-                       markers[markerIndex].marker.setMap(null);
-                       markers.splice(markerIndex, 1);
-                   }
-               }
+                if (!checkbox.checked) {
+                    const title = checkbox.getAttribute('data-title');
+                    const type = checkbox.getAttribute('data-type');
+                    const markerIndex = markers.findIndex(marker => marker.title === title && marker.type === type);
+                    if (markerIndex !== -1) {
+                        markers[markerIndex].marker.setMap(null);
+                        markers.splice(markerIndex, 1);
+                    }
+                }
             }
         }
     });
@@ -446,14 +445,12 @@ function toggleAllMarkers(type, showMarkers) {
         });
     } else {
         // Eliminar todos los marcadores del tipo correspondiente si "Todas" está deseleccionado
-        markers = markers.filter(marker => !(marker.type === type));
         markers.forEach(marker => {
             if (marker.type === type) {
                 marker.marker.setMap(null);
             }
         });
+        markers = markers.filter(marker => !(marker.type === type));
     }
 }
-
-
 
