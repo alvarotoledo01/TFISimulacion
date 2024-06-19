@@ -1,4 +1,37 @@
 body {
+    font-family: Lato, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #2fb3fa;
+    overflow: hidden;
+    display: flex; /* Usamos flex para alinear los elementos */
+    flex-direction: row; /* Alineamos los elementos en fila */
+    justify-content: flex-start; /* Alineamos los elementos hacia la izquierda */
+}
+
+.navbar a {
+    display: block;
+    color: rgb(17, 15, 15);
+    text-align: right; /* Asegura que el texto esté alineado a la izquierda */
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navbar-img {
+    padding-left: 2%;
+    max-width: 200px; /* Ajusta el tamaño máximo de la imagen según sea necesario */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-right: 10px; /* Ajusta el margen derecho para separar la imagen de los enlaces */
+}
+body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
     color: #333;

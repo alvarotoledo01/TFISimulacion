@@ -7,13 +7,15 @@ body {
 .navbar {
     background-color: #2fb3fa;
     overflow: hidden;
+    display: flex; /* Usamos flex para alinear los elementos */
+    flex-direction: row; /* Alineamos los elementos en fila */
+    justify-content: flex-start; /* Alineamos los elementos hacia la izquierda */
 }
 
 .navbar a {
-    float: left;
     display: block;
     color: rgb(17, 15, 15);
-    text-align: center;
+    text-align: right; /* Asegura que el texto esté alineado a la izquierda */
     padding: 14px 20px;
     text-decoration: none;
 }
@@ -22,6 +24,14 @@ body {
     background-color: #ddd;
     color: black;
 }
+
+.navbar-img {
+    padding-left: 2%;
+    max-width: 200px; /* Ajusta el tamaño máximo de la imagen según sea necesario */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-right: 10px; /* Ajusta el margen derecho para separar la imagen de los enlaces */
+}
+
 
 .container {
     display: flex;
@@ -176,7 +186,7 @@ details > div {
 
 /* Estilos de los resultados */
 .result-container1 {
-    background-color: #ec3232;
+    background-color: #ea6f6f;
     padding: 15px;
     margin-top: 20px;
     border-radius: 8px;

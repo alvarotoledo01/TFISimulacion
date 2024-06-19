@@ -1,84 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Pagina Principal</title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
+    <div class="navbar">
+      <img src="imagenes/imeko.png" alt="" class="navbar-img">
+        <a href="simulador.html"><i class="fa-solid fa-terminal"></i>Simulador</a>
+        <a href="quienesomos.html"><i class="fa-solid fa-users"></i>Acerca de nosotros</a>
+    </div>
+
     <div class="container">
-<div class="titulo">
-    <h1>El Reto del Reciclaje: Combatir la Contaminación de las Colillas de Cigarrillo</h1>
-</div>
-<div class="texto">
-    <p>La Organización Mundial de la Salud estima que se desechan unas 18.000 millones de colillas por día en el mundo. 
-      <br>
-      Transformándose en el residuo más abundante en la vía pública. 
-<br>
-        En las zonas urbanas muchas de estas colillas son arrastradas a los desagües por el viento o las lluvias y así llegan hasta los arroyos, ríos y océanos. 
-        <br>
-        De esta manera, la generación de este residuo que contiene productos químicos y metales pesados representa una amenaza para las personas, los animales y las plantas.
-    <br>    
-        Cuando las colillas se degradan en un medio terrestre, pueden reducir la fertilidad del suelo y afectar la flora y fauna del lugar. 
-        <br>
-        Cuando esto sucede en un medio acuático, una sola colilla puede contaminar hasta 1000 litros de agua, perjudicando a todos los organismos que de ella dependen. A su vez, las colillas pueden emitir al aire sustancias volátiles como la nicotina, la piridina y el benceno. 
-    </p>
-</div>
-<div id="carrusel01" class="carousel slide" data-bs-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-bs-target="#carrusel01" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
-    <li data-bs-target="#carrusel01" data-bs-slide-to="1" aria-label="Second slide"></li>
-    <li data-bs-target="#carrusel01" data-bs-slide-to="2" aria-label="Third slide"></li>
-    <li data-bs-target="#carrusel01" data-bs-slide-to="3" aria-label="Quarter slide"></li>
-  </ol>
-  <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active">
-      <img src="./imagenes/img1.jpg" class="w-100 d-block" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img src="./imagenes/img2.jpg" class="w-100 d-block" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img src="./imagenes/img3.jpg" class="w-100 d-block" alt="Third slide">
-    </div>
-    <div class="carousel-item">
-      <img src="./imagenes/img4.jpg" class="w-100 d-block" alt="Quarter slide">
-    </div>
+        <div class="titulo">
+            <h1>El Reto del Reciclaje: Combatir la Contaminación de las Colillas de Cigarrillo</h1>
+        </div>
+
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./imagenes/img1.jpg" class="w-100 d-block" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img src="./imagenes/img2.jpg" class="w-100 d-block" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img src="./imagenes/img3.jpg" class="w-100 d-block" alt="Third slide">
+                </div>
+                <div class="carousel-item">
+                    <img src="./imagenes/img4.jpg" class="w-100 d-block" alt="Fourth slide">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+              <div class="texto" id="container1">
+                  <h2>El problema de las colillas</h2>
+                  <p>
+                      La Organización Mundial de la Salud estima que se desechan unas 18.000 millones de colillas por
+                      día en el mundo. Transformándose en el residuo más abundante en la vía pública. En las zonas
+                      urbanas muchas de estas colillas son arrastradas a los desagües por el viento o las lluvias y
+                      así llegan hasta los arroyos, ríos y océanos. <br><br> De esta manera, la generación de este
+                      residuo que contiene productos químicos y metales pesados representa una amenaza para las
+                      personas, los animales y las plantas. Cuando las colillas se degradan en un medio terrestre,
+                      pueden reducir la fertilidad del suelo y afectar la flora y fauna del lugar. Cuando esto
+                      sucede en un medio acuático, una sola colilla puede contaminar hasta 1000 litros de agua,
+                      perjudicando a todos los organismos que de ella dependen. A su vez, las colillas pueden emitir
+                      al aire sustancias volátiles como la nicotina, la piridina y el benceno.
+                  </p>
+              </div>
+              <div class="image">
+                  <img src="./imagenes/colillasuelo.png" alt="Imagen de colillas en el suelo">
+              </div>
+          </div>
+
+          <div class="col-md-6">
+              <div class="texto" id="container1">
+                  <h2>Solucionando la contaminación por colillas de cigarro</h2>
+                  <p>
+                      Mediante el uso de la ciencia, hemos desarrollado una tecnología única para reciclarlas,
+                      recuperando el plástico de su filtro, y convirtiéndolo en un nuevo material sustentable.
+                  </p>
+              </div>
+              <div class="image">
+                  <img src="./imagenes/coli.png" alt="Imagen de colillas en el suelo">
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-6">
+              <div class="texto" id="container1">
+                  <h2>¿Por qué reciclar colillas de cigarro?</h2>
+                  <p>
+                      70% de las colillas de cigarro terminan en el medio ambiente, alcanzando los 5.6 trillones
+                      anualmente 22.3% de la población mundial fuma 40% de los residuos que se encuentran en el mar
+                      corresponden a colillas de cigarros
+                  </p>
+              </div>
+              <div class="image">
+                  <img src="./imagenes/coli2.png" alt="Imagen de colillas en el suelo">
+              </div>
+          </div>
+
+          <div class="col-md-6">
+              <div class="texto" id="container1">
+                  <h2>Objetivo general del simulador</h2>
+                  <p>
+                      A partir de la cantidad de colillas recolectadas por cada zona determinada dentro de las cuatro
+                      avenidas del microcentro de San Miguel de Tucumán, calcule la cantidad de plástico susceptible
+                      a ser recuperado y determine la cantidad de recolectores a implementar por zona para generar
+                      un informe detallado que sintetice estos datos, ofreciendo recomendaciones estratégicas para
+                      apoyar la toma de decisiones.
+                  </p>
+              </div>
+              <div class="image">
+                  <img src="./imagenes/software-og.png" alt="Imagen de colillas en el suelo">
+              </div>
+          </div>
+      </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carrusel01" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carrusel01" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-    </button>
-</div>
-  <div class="options">
-    <a href="simulador.html" class="btn">
-      <i class="fa-solid fa-terminal"></i> SIMULADOR
-  </a>
-    <a href="quienesomos.html" class="btn" > 
-      <i class="fa-solid fa-users"></i>QUIENES SOMOS
-    </a>
-  </div>
-    </div>
-  
-  
-  
-  
-  
+       
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous">
+    </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous">
+    </script>
 
-</body> 
+</body>
+
 </html>
+
