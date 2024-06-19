@@ -89,7 +89,14 @@ body {
 }
 
 /* Imagen */
+#colios{
+    width: 200 px;
+    align-items: center;
+}
 
+#colios2{
+    width: 500px;
+}
 
 .image img {
     max-width: 100%;
