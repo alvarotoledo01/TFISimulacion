@@ -112,9 +112,9 @@ function updateChart(plazas, bares, universidades) {
 
 // Función de número aleatorio a partir del congruencial mixto con `a` y `m` aleatorios
 function numeroU(ni) {
-    const a = Math.floor(Math.random());
-    const m = Math.floor(Math.random());
-    const c = Math.floor(Math.random());;
+    const a = 5;
+    const m = 8;
+    const c = 7;
     const nj = (a * ni + c) % m;
     return nj / m;
 }
